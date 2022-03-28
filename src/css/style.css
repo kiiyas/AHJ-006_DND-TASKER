@@ -1,0 +1,190 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-variant: no-common-ligatures proportional-nums;
+    font-stretch: expanded;
+    font-size: 15px;
+    overflow: hidden;
+}
+
+.container {        
+    background-color: #dddddd;
+    padding: 20px; 
+    display: flex;
+    justify-content: center;
+}
+
+.toolbar {
+    background-color: #cecece;
+    height: 10%;
+}
+
+.tool-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tasker {
+    min-width: 300px;
+    width: 20vw;
+    height: 90vh;
+    background-color: #ffffff;
+    padding: 20px;    
+    border: 2px solid rgb(187, 187, 187);
+    border-radius: 30px;
+    box-shadow: -5px 5px 7px rgb(187, 187, 187);
+    margin-right: 20px;
+    position: relative;
+}
+.details {
+    width: 75vw;
+    height: 90vh;
+    background-color: #ffffff;
+    border-radius: 30px;
+}
+
+@media screen and (max-width: 600px) {}
+    
+
+.head-input {}
+
+.task-name {
+    margin: 10px 10px 20px 10px;
+    font-size: 35px;
+    text-align: center;
+}
+
+.add-task {
+    color: #b6b6b6;
+    text-align: center;
+    cursor: pointer;
+}
+
+.task-input-form {
+    position: absolute;
+    bottom: 10px;
+    width: 85%;
+}
+
+.task-input {
+    display: block;
+    max-height: 150px;
+    width: 100%;
+    border: .3px solid rgb(187, 187, 187);    
+    color: #444445;
+    padding: 10px;
+    -webkit-border-radius: 20px 7px 7px 7px;
+    -moz-border-radius: 20px 7px 7px 7px;
+    border-radius: 7px;    
+}
+
+.form-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-btn {
+    display: inline-block;
+    width: 80%;
+    border: .3px solid rgb(187, 187, 187);
+    color: #828282;
+    margin: 5px 0px;
+    -webkit-border-radius: 7px 20px 7px 7px;
+    -moz-border-radius: 7px 20px 7px 7px;
+    border-radius: 7px 7px 7px 20px;
+    cursor: pointer;
+}
+
+.close-input {    
+    -moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+    color: #cccccc;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+.list {
+    height: 90%;    
+}
+
+.list ul {
+    color:#1d1d1d
+}
+
+.todo-task {
+    list-style: none;
+    width: 100%;
+    background-color: rgba(176, 193, 221, .3);
+    border: .3px solid rgba(176, 193, 221, .7);    
+    padding: 10px;
+    -webkit-border-radius: 7px 7px 7px 7px;
+    -moz-border-radius: 7px 7px 7px 7px;
+    border-radius: 7px 7px 7px 7px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.todo-task > span {
+    display: inline-block;
+    padding: 0px 15% 0px 10%;
+
+}
+
+.done {
+    margin-top: 20px;
+}
+
+.done-list {
+    color:#a7a7a7
+}
+
+.done-task {
+    list-style: none;
+    width: 100%;
+    background-color: rgba(228, 228, 228, 0.3);
+    border: .3px solid rgba(218, 218, 218, 0.7);
+    padding: 10px;
+    -webkit-border-radius: 7px 7px 7px 7px;
+    -moz-border-radius: 7px 7px 7px 7px;
+    border-radius: 7px 7px 7px 7px;
+    margin-top: 10px;
+    position: relative;    
+}
+
+.close-task {    
+    -moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+    color: #cccccc;
+    font-size: 40px;
+    position: absolute;
+    right: 20px;
+    top: -5px;
+}
+
+.close-task:hover {
+    color: #828282;
+    cursor: pointer;    
+}
+
+.done-task > .close-task {
+    color: #cccccc;
+}
+
+.grabbing {
+    cursor: grabbing;
+}
+
+.hidden {
+    display: none;
+}
