@@ -1,4 +1,5 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/idjgt23egmlkyhup?svg=true)](https://ci.appveyor.com/project/kiiyas/ahj-003-validate-n-testing)
+[![Build status](https://ci.appveyor.com/api/projects/status/ryx4v6rvgom226my?svg=true)](https://ci.appveyor.com/project/kiiyas/ahj-006-dnd-tasker)
+
 
 [Ссылка на GitHub-Pages](https://kiiyas.github.io/AHJ-003_VALIDATE-N-TESTING/)
 
