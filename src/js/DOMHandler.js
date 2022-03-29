@@ -11,17 +11,18 @@ import CreateTask from './task';
 export default class DOMhandler {
   constructor() {
     this.createdForm = null;
+    this.todoListArray = [];
+    this.wipListArray = [];
+    this.doneListArray = [];
   }
 
   activateAddButtons() {
     const addButtons = document.querySelectorAll('.add-task');
-    // console.log(addButtons);
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < addButtons.length; i++) {
       addButtons[i].addEventListener('click', (event) => {
         event.preventDefault();
         const targetBoard = addButtons[i].closest('.tasker');
-        // console.log(targetBoard);
         this.createForm(targetBoard);
       });
     }
@@ -56,5 +57,45 @@ export default class DOMhandler {
       e.preventDefault();
       board.removeChild(form);
     });
+  }
+
+  mapingForSave() {
+    // сделать гибчe
+    const todoList = [...document.querySelector('#todo').childNodes[3].childNodes[1].children];
+    const wipList = [...document.querySelector('#wip').childNodes[3].childNodes[1].children];
+    const doneList = [...document.querySelector('#done').childNodes[3].childNodes[1].children];
+
+    for (const item of todoList) this.todoListArray.push(item.firstChild.innerText);
+    for (const item of wipList) this.wipListArray.push(item.firstChild.innerText);
+    for (const item of doneList) this.doneListArray.push(item.firstChild.innerText);
+
+    localStorage.clear();
+    localStorage.setItem('todo', JSON.stringify(this.todoListArray));
+    localStorage.setItem('wip', JSON.stringify(this.wipListArray));
+    localStorage.setItem('done', JSON.stringify(this.doneListArray));
+  }
+
+  solveBoards() {
+    // сделать гибчe
+    const todoList = JSON.parse(localStorage.getItem('todo'));
+    const wipList = JSON.parse(localStorage.getItem('wip'));
+    const doneList = JSON.parse(localStorage.getItem('done'));
+
+    const todoBoard = document.querySelector('#todo');
+    const wipBoard = document.querySelector('#wip');
+    const doneBoard = document.querySelector('#done');
+
+    for (const item of todoList) {
+      const createNewTask = new CreateTask(todoBoard, item);
+      createNewTask.create();
+    }
+    for (const item of wipList) {
+      const createNewTask = new CreateTask(wipBoard, item);
+      createNewTask.create();
+    }
+    for (const item of doneList) {
+      const createNewTask = new CreateTask(doneBoard, item);
+      createNewTask.create();
+    }
   }
 }
