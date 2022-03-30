@@ -55,7 +55,7 @@ export default class Moving {
     const closest = document.elementFromPoint(evt.clientX, evt.clientY);
     // console.log(closest); // список, куда перемещаем
     // if (closest.classList.contains('todo-list')) {}
-    closest.appendChild(this.draggedEl);
+    closest.appendChild(this.draggedEl); // evt.currentTarget.insertBefore(this.draggedEl, closest);
     document.body.removeChild(this.ghostEl);
     this.draggedEl.classList.remove('selected');
     this.ghostEl = null;
