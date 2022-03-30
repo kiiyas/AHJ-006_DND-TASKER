@@ -5,6 +5,8 @@ import CreateTask from './task';
  * activateAddButtons() вешает обработчик на кнопки "Add a new card" внизу каждой доски;
  * createForm() открывает форму добавления карточки внизу каждой доски;
  * controlForm() задает функционал кнопкам добавления и удаления в каждой форме;
+ * mapingForSave() собирает данные карточек в хранилище перед уходом со страницы
+ * solveBoards() строит карточки на досках по данным из хранилища
 */
 
 /* eslint-disable class-methods-use-this */
@@ -99,3 +101,5 @@ export default class DOMhandler {
     }
   }
 }
+
+// добавить даблклик на элемент - открыть редактирование popover, переделать
