@@ -53,7 +53,7 @@ export default class Moving {
       return;
     }
     const closest = document.elementFromPoint(evt.clientX, evt.clientY);
-    console.log(closest); // список, куда перемещаем
+    // console.log(closest); // список, куда перемещаем
     // if (closest.classList.contains('todo-list')) {}
     closest.appendChild(this.draggedEl);
     document.body.removeChild(this.ghostEl);
