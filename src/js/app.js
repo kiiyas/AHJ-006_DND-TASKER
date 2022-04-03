@@ -1,10 +1,10 @@
 /* eslint-disable no-multiple-empty-lines */
 
 import DOMhandler from './DOMHandler';
-import Moving from './dnd';
+// import Moving from './dnd';
 
 const binder = new DOMhandler();
-const moving = new Moving();
+// const moving = new Moving();
 // подстановка из LocalStorage
 try {
   binder.solveBoards();
@@ -14,7 +14,7 @@ try {
 
 // активация кнопок добавления карточек
 binder.activateAddButtons();
-moving.init();
+// moving.init();
 
 // сохранение в LocalStorage
 window.addEventListener('beforeunload', () => {
