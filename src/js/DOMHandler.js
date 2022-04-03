@@ -21,7 +21,7 @@ export default class DOMhandler {
   activateAddButtons() {
     const addButtons = document.querySelectorAll('.add-task');
     // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < addButtons.length; i++) {
+    for (let i = 0; i < addButtons.length; i += 1) {
       addButtons[i].addEventListener('click', (event) => {
         event.preventDefault();
         const targetBoard = addButtons[i].closest('.tasker');
