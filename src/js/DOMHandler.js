@@ -63,9 +63,9 @@ export default class DOMhandler {
 
   mapingForSave() {
     // сделать гибчe
-    const todoList = [...document.querySelector('#todo').childNodes[3].childNodes[1].children];
-    const wipList = [...document.querySelector('#wip').childNodes[3].childNodes[1].children];
-    const doneList = [...document.querySelector('#done').childNodes[3].childNodes[1].children];
+    const todoList = [...document.querySelector('#todo').querySelectorAll('li.todo-task')];
+    const wipList = [...document.querySelector('#wip').querySelectorAll('li.todo-task')];
+    const doneList = [...document.querySelector('#done').querySelectorAll('li.todo-task')];
 
     for (const item of todoList) this.todoListArray.push(item.firstChild.innerText);
     for (const item of wipList) this.wipListArray.push(item.firstChild.innerText);
