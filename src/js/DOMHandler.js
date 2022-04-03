@@ -82,6 +82,7 @@ export default class DOMhandler {
     const todoList = JSON.parse(localStorage.getItem('todo'));
     const wipList = JSON.parse(localStorage.getItem('wip'));
     const doneList = JSON.parse(localStorage.getItem('done'));
+    // console.log(todoList);
 
     const todoBoard = document.querySelector('#todo');
     const wipBoard = document.querySelector('#wip');
