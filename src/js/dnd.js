@@ -2,12 +2,6 @@ export default class Moving {
   constructor() {
     this.draggedEl = null;
     this.ghostEl = null;
-    // this.itemsEl = document.querySelectorAll('.todo-list');
-    this.container = document.querySelector('.container');
-    // this.down = this.down.bind(this);
-    // this.move = this.move.bind(this);
-    // this.up = this.up.bind(this);
-    // this.leave = this.leave.bind(this);
   }
 
   init() {
@@ -20,19 +14,13 @@ export default class Moving {
   // mousedown - фиксация начала перемещения элемента
   // eslint-disable-next-line class-methods-use-this
   down(evt) {
-    evt.preventDefault();
-    if (!evt.target.classList.contains('todo-task')) {
-      return;
+    if (evt.target.classList.contains('todo-task')) {
+      this.draggedEl = evt.target;
+      this.ghostEl = this.draggedEl.cloneNode(true);
+      this.draggedEl.classList.add('selected');
+      this.ghostEl.classList.add('dragged');
+      document.body.appendChild(this.ghostEl);
     }
-    this.draggedEl = evt.target;
-    this.ghostEl = evt.target.cloneNode(true);
-    this.draggedEl.classList.add('selected');
-    this.ghostEl.classList.add('dragged');
-    // this.ghostEl.style.width = this.draggedEl.style.width;
-    // this.ghostEl.style.height = this.draggedEl.style.height;
-    document.body.appendChild(this.ghostEl);
-    this.ghostEl.style.left = `${evt.pageX - this.ghostEl.offsetWidth / 2}px`;
-    this.ghostEl.style.top = `${evt.pageY - this.ghostEl.offsetHeight / 2}px`;
   }
 
   // mousemove - установка top / left элемента
@@ -53,8 +41,7 @@ export default class Moving {
       return;
     }
     const closest = document.elementFromPoint(evt.clientX, evt.clientY);
-    // console.log(closest); // список, куда перемещаем
-    // if (closest.classList.contains('todo-list')) {}
+    // eslint-disable-next-line max-len
     closest.appendChild(this.draggedEl); // evt.currentTarget.insertBefore(this.draggedEl, closest);
     document.body.removeChild(this.ghostEl);
     this.draggedEl.classList.remove('selected');
