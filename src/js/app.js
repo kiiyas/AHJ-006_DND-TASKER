@@ -6,11 +6,7 @@ import DOMhandler from './DOMHandler';
 const binder = new DOMhandler();
 // const moving = new Moving();
 // подстановка из LocalStorage
-try {
-  binder.solveBoards();
-} catch (e) {
-  throw new Error(e);
-}
+binder.solveBoards();
 
 // активация кнопок добавления карточек
 binder.activateAddButtons();
