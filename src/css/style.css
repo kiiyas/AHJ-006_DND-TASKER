@@ -63,6 +63,9 @@ body {
     color: #b6b6b6;
     text-align: center;
     cursor: pointer;
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
 }
 
 .task-input-form {
@@ -112,7 +115,7 @@ body {
 }
 
 .list {
-    height: 90%;    
+    /* height: 80%; */
 }
 
 .list ul {
