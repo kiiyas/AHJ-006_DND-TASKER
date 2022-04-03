@@ -6,13 +6,13 @@ import DOMhandler from './DOMHandler';
 const binder = new DOMhandler();
 // const moving = new Moving();
 // подстановка из LocalStorage
-// binder.solveBoards();
+binder.solveBoards();
 
 // активация кнопок добавления карточек
 binder.activateAddButtons();
 // moving.init();
 
 // сохранение в LocalStorage
-// window.addEventListener('beforeunload', () => {
-//   binder.mapingForSave();
-// });
+window.addEventListener('beforeunload', () => {
+  binder.mapingForSave();
+});
