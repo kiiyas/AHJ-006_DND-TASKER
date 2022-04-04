@@ -49,9 +49,6 @@ body {
 }
 
 @media screen and (max-width: 600px) {}
-    
-
-.head-input {}
 
 .task-name {
     margin: 10px 10px 20px 10px;
@@ -114,10 +111,6 @@ body {
     cursor: pointer;
 }
 
-.list {
-    /* height: 80%; */
-}
-
 .list ul {
     color:#1d1d1d
 }
@@ -132,13 +125,15 @@ body {
     -moz-border-radius: 7px 7px 7px 7px;
     border-radius: 7px 7px 7px 7px;
     margin-top: 10px;
-    position: relative;
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
 }
 
 .todo-task > span {
     display: inline-block;
-    padding: 0px 15% 0px 10%;
-
+    padding: 0px 15% 0px 5%;
+    max-width: 85%;
 }
 
 .done {
@@ -159,7 +154,14 @@ body {
     -moz-border-radius: 7px 7px 7px 7px;
     border-radius: 7px 7px 7px 7px;
     margin-top: 10px;
-    position: relative;    
+        
+}
+
+.close {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;    
+    position: relative;
 }
 
 .close-task {    
@@ -167,17 +169,19 @@ body {
 	-webkit-transform: rotate(-45deg);
 	-o-transform: rotate(-45deg);
 	-ms-transform: rotate(-45deg);
-	transform: rotate(-45deg);
+    display: inline-block;
+	transform: rotate(-45deg); 
     color: #cccccc;
-    font-size: 40px;
+    font-size: 50px;
+    line-height: 1;        
     position: absolute;
-    right: 20px;
-    top: -5px;
+    top: -10px;
+    right: 0;
+    display: none;
 }
 
 .close-task:hover {
-    color: #828282;
-    cursor: pointer;    
+    color: #828282;       
 }
 
 .done-task > .close-task {

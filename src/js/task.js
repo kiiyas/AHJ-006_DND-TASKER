@@ -10,12 +10,16 @@ export default class CreateTask {
     this.list = this.board.querySelector('.todo-list');
     this.inputValue = value;
     this.createdTask = null;
+    this.closeCross = null;
   }
 
   create() {
     this.createdTask = document.createElement('li');
     this.createdTask.className = 'todo-task';
-    this.createdTask.innerHTML = `<span>${this.inputValue}</span><div class="close-task hidden">+</div>`;
+    this.createdTask.innerHTML = `<span>${this.inputValue}</span>
+    <div class="close">
+    <div class="close-task">+</div>
+    </div>`;
     this.list.appendChild(this.createdTask);
     this.addCloseButton(this.createdTask);
   }
@@ -23,17 +27,18 @@ export default class CreateTask {
   // eslint-disable-next-line class-methods-use-this
   addCloseButton(task) {
     document.addEventListener('mouseover', (event) => {
-      if (event.target === task) {
-        // TODO отрисовывать кликабельный крестик абсолютом поверх карточки
-        task.children[1].classList.remove('hidden');
-        task.children[1].addEventListener('click', () => {
-          this.list.removeChild(task);
+      if (event.target === task || event.target === task.querySelector('span') || event.target === task.querySelector('.close')) {
+        this.closeCross = task.querySelector('.close-task');
+        this.closeCross.style.display = 'block';
+        task.querySelector('.close').addEventListener('click', () => {
+          task.remove();
         });
       }
     });
-    document.addEventListener('mouseout', (event) => {
-      if (event.target === task) {
-        task.children[1].classList.add('hidden');
+
+    document.addEventListener('mouseout', (e) => {
+      if (e.target === task) {
+        this.closeCross.style.display = 'none';
       }
     });
   }
