@@ -74,9 +74,6 @@ export default class Moving {
     document.removeEventListener('mouseup', this.up);
 
     const targetElement = document.elementFromPoint(evt.clientX, evt.clientY);
-    // if (!targetElement.classList.contains('todo-task') && targetElement.closest('.todo-list')) {
-    //   return;
-    // }
 
     if (targetElement.classList.contains('todo-task')) {
       const { top } = targetElement.getBoundingClientRect();

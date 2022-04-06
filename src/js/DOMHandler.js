@@ -53,6 +53,7 @@ export default class DOMhandler {
         // console.log(inputValue);
         createNewTask.create();
         createNewTask.insert();
+        createNewTask.addCloseButton();
         board.removeChild(form);
       }
     });
@@ -93,16 +94,19 @@ export default class DOMhandler {
       const createNewTask = new CreateTask(todoBoard, item);
       createNewTask.create();
       createNewTask.insert();
+      createNewTask.addCloseButton();
     }
     for (const item of wipList) {
       const createNewTask = new CreateTask(wipBoard, item);
       createNewTask.create();
       createNewTask.insert();
+      createNewTask.addCloseButton();
     }
     for (const item of doneList) {
       const createNewTask = new CreateTask(doneBoard, item);
       createNewTask.create();
       createNewTask.insert();
+      createNewTask.addCloseButton();
     }
   }
 }

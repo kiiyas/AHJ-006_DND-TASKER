@@ -8,6 +8,7 @@ export default class CreateTask {
   constructor(board, value) {
     this.board = board;
     this.list = this.board.querySelector('.todo-list');
+    this.task = null;
     this.inputValue = value;
     this.createdTask = null;
     this.closeCross = null;
@@ -20,7 +21,7 @@ export default class CreateTask {
     <div class="close">
     <div class="close-task">+</div>
     </div>`;
-    this.addCloseButton(this.createdTask);
+    // this.addCloseButton(this.createdTask);
   }
 
   insert() {
@@ -28,21 +29,22 @@ export default class CreateTask {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  addCloseButton(task) {
-    document.addEventListener('mouseover', (event) => {
-      if (event.target === task || event.target === task.querySelector('span') || event.target === task.querySelector('.close')) {
-        this.closeCross = task.querySelector('.close-task');
+  addCloseButton() {
+    this.task = document.querySelectorAll('.todo-task');
+    // console.log(this.task);
+    for (let i = 0; i < this.task.length; i += 1) {
+      this.closeCross = this.task[i].querySelector('.close-task');
+      this.task[i].addEventListener('mouseover', () => {
         this.closeCross.style.display = 'block';
-        task.querySelector('.close').addEventListener('click', () => {
-          task.remove();
+        // console.log(this.task[i]);
+        this.task[i].querySelector('.close').addEventListener('click', () => {
+          this.task[i].remove();
         });
-      }
-    });
+      });
 
-    document.addEventListener('mouseout', (e) => {
-      if (e.target === task) {
+      this.task[i].addEventListener('mouseout', () => {
         this.closeCross.style.display = 'none';
-      }
-    });
+      });
+    }
   }
 }
