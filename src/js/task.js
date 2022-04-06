@@ -20,8 +20,11 @@ export default class CreateTask {
     <div class="close">
     <div class="close-task">+</div>
     </div>`;
-    this.list.appendChild(this.createdTask);
     this.addCloseButton(this.createdTask);
+  }
+
+  insert() {
+    this.list.appendChild(this.createdTask);
   }
 
   // eslint-disable-next-line class-methods-use-this

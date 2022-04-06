@@ -150,9 +150,9 @@ body {
     background-color: rgba(228, 228, 228, 0.3);
     border: .3px solid rgba(218, 218, 218, 0.7);
     padding: 10px;
-    -webkit-border-radius: 7px 7px 7px 7px;
-    -moz-border-radius: 7px 7px 7px 7px;
-    border-radius: 7px 7px 7px 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
     margin-top: 10px;
         
 }
@@ -208,3 +208,9 @@ body {
 .selected {
     opacity: 0.3;
   }
+
+.ghosted {
+    display: block;
+    width: 100%;    
+    background: #fddbdb;
+}

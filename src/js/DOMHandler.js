@@ -52,6 +52,7 @@ export default class DOMhandler {
         const createNewTask = new CreateTask(board, input.value);
         // console.log(inputValue);
         createNewTask.create();
+        createNewTask.insert();
         board.removeChild(form);
       }
     });
@@ -91,14 +92,17 @@ export default class DOMhandler {
     for (const item of todoList) {
       const createNewTask = new CreateTask(todoBoard, item);
       createNewTask.create();
+      createNewTask.insert();
     }
     for (const item of wipList) {
       const createNewTask = new CreateTask(wipBoard, item);
       createNewTask.create();
+      createNewTask.insert();
     }
     for (const item of doneList) {
       const createNewTask = new CreateTask(doneBoard, item);
       createNewTask.create();
+      createNewTask.insert();
     }
   }
 }
