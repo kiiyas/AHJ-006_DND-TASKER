@@ -1,8 +1,11 @@
+// import CreateTask from './task';
+
 export default class Moving {
   constructor() {
     this.draggedEl = null;
     this.ghostEl = null;
     // this.field = document.querySelectorAll('.list');
+    // this.taskSetter = new CreateTask();
   }
 
   init() {
@@ -85,6 +88,25 @@ export default class Moving {
     }
 
     this.ghostEl.classList.remove('dragged');
+
+    // this.taskSetter.addCloseButton();
+    this.task = document.querySelectorAll('.todo-task');
+    // console.log(this.task);
+    for (let i = 0; i < this.task.length; i += 1) {
+      const closeCross = this.task[i].querySelector('.close-task');
+      this.task[i].addEventListener('mouseover', () => {
+        closeCross.style.display = 'block';
+        // console.log(this.task[i]);
+        this.task[i].querySelector('.close').addEventListener('click', () => {
+          this.task[i].remove();
+        });
+      });
+
+      this.task[i].addEventListener('mouseout', () => {
+        closeCross.style.display = 'none';
+      });
+    }
+
     document.querySelector('.selected').remove();
     document.querySelector('.ghosted').remove();
 
